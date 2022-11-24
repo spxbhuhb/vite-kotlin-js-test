@@ -5,9 +5,9 @@ services:
   db:
     image: postgres:9.6.21
     environment:
-      POSTGRES_DB: @dockerSqlDatabase@
-      POSTGRES_USER: @dockerSqlUser@
-      POSTGRES_PASSWORD: @dockerSqlPassword@
+      POSTGRES_DB: vite-kotlin-js-test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 96f93e5d-7e9c-43d0-91a4-19679322ac21
     ports:
       - '25432:5432'
     restart: on-failure
@@ -18,7 +18,7 @@ services:
       retries: 5
 
   app:
-    image: @dockerImageName@ # :@version@ - haven't figured out how to add yet
+    image: vite-kotlin-js-test # :@version@ - haven't figured out how to add yet
     depends_on:
       db:
         condition: service_healthy

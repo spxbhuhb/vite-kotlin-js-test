@@ -1,0 +1,34 @@
+{
+  "name": "vite-kotlin-js-test",
+  "version": "2022.10.12",
+  "private": true,
+  "workspaces": [
+    "packages/vite-kotlin-js-test",
+    "packages/vite-kotlin-js-test-test",
+    "packages_imported/zakadabar-stack-core-js-legacy/2022.9.23",
+    "packages_imported/kotlinx-coroutines-core/1.6.4",
+    "packages_imported/kotlinx-atomicfu/0.17.3",
+    "packages_imported/kotlin/1.7.10",
+    "packages_imported/kotlinx-serialization-kotlinx-serialization-json-js-legacy/1.3.1",
+    "packages_imported/kotlinx-serialization-kotlinx-serialization-core-js-legacy/1.3.1",
+    "packages_imported/Kotlin-DateTime-library-kotlinx-datetime-js-legacy/0.2.1",
+    "packages_imported/zakadabar-stack-accounts-js-legacy/2022.9.23",
+    "packages_imported/zakadabar-stack-blobs-js-legacy/2022.9.23",
+    "packages_imported/zakadabar-stack-i18n-js-legacy/2022.9.23",
+    "packages_imported/zakadabar-stack-softui-js-legacy/2022.9.23",
+    "packages_imported/kotlin-test-js-runner/1.7.10"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^3.2.3"
+  },
+  "resolutions": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

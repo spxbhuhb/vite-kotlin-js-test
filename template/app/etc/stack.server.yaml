@@ -2,17 +2,17 @@ serverName: Zakadabar Demo
 defaultLocale: en
 
 database:
-  driverClassName: @sqlDriver@
-  jdbcUrl: @sqlUrl@
-  username: @sqlUser@
-  password: @sqlPassword@
+  driverClassName: org.h2.Driver
+  jdbcUrl: jdbc:h2:./app/var/vite-kotlin-js-test
+  username: local
+  password: 96f93e5d-7e9c-43d0-91a4-19679322ac21
   debugSql: false
 
 traceRouting: false
 staticResources: ./var/static
 
 modules:
-  - @packageName@.backend.Module
+  - hu.simplexion.kotlin.test.vite.backend.Module
 
 #ktor:
 #  port: 8080

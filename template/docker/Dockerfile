@@ -4,15 +4,15 @@ COPY local local
 
 LABEL version="@version@"
 
-WORKDIR /local/@projectName@
+WORKDIR /local/vite-kotlin-js-test
 
 ENTRYPOINT [\
     "java",\
     "-Duser.timezone=UTC",\
     "-jar",\
-    "/local/@projectName@/lib/@projectName@-@version@-all.jar",\
+    "/local/vite-kotlin-js-test/lib/vite-kotlin-js-test-@version@-all.jar",\
     "--settings",\
-    "/local/@projectName@/etc/stack.server-docker.yaml"\
+    "/local/vite-kotlin-js-test/etc/stack.server-docker.yaml"\
 ]
 
 EXPOSE 8080

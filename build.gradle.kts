@@ -1,10 +1,10 @@
 /*
- * @copyright@
+ * Copyright © 2020-2021, Simplexion, Hungary and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
+import zakadabar.gradle.config
 import zakadabar.gradle.isPublishing
 import zakadabar.gradle.manifestAndDokka
-import zakadabar.gradle.config
 import java.util.*
 
 plugins {
@@ -22,59 +22,8 @@ plugins {
     id("zk-build-tasks") apply false
 }
 
-// ---- ZK-CUSTOMIZE-START -----------------------------------------------------
-
-//    ↓ ↓ ↓ ↓   READ COMMENTS  ↓ ↓ ↓ ↓
-
-// -----------------------------------------------------------------------------
-// You don't have to modify anything above this
-// -----------------------------------------------------------------------------
-
-group = "my.application.group"
-version = "2022.6.20"
-
-tasks.register<zakadabar.gradle.CustomizeTask>("zkCustomize") {
-
-    packageName = "my.pkg.name" // the package your code resides in
-
-    projectPath = "" // "spxbhuhb/zakadabar-application-template"
-    projectUrl = "" // "https://github.com/$projectPath"
-
-    license = "" // "Apache 2.0"
-    licenseUrl = "" // "https://www.apache.org/licenses/LICENSE-2.0.txt"
-
-    organizationName = "" // "Simplexion Kft."
-
-    copyright = "Copyright © 2020-2021, Simplexion, Hungary and contributors. Use of this source code is governed by the Apache 2.0 license."
-
-    // the title of your application, this is the title of the web pace
-    // also, if you publish to maven this is the description of your package
-
-    applicationTitle = "My Application"
-
-    defaultLocale = "en"
-
-    sqlDriver = "org.h2.Driver"
-    sqlDatabase = project.name
-    sqlUrl = "jdbc:h2:./app/var/$sqlDatabase"
-    sqlUser = "local"
-    sqlPassword = UUID.randomUUID().toString()
-
-    dockerImageName = project.name
-
-    dockerSqlDriver = "org.postgresql.Driver"
-    dockerSqlDatabase = project.name
-    dockerSqlUrl = "jdbc:postgresql://localhost/$sqlDatabase"
-    dockerSqlUser = "postgres"
-    dockerSqlPassword = sqlPassword
-
-}
-
-// -----------------------------------------------------------------------------
-// You don't have to modify anything below this
-// -----------------------------------------------------------------------------
-
-// ---- ZK-CUSTOMIZE-END -------------------------------------------------------
+group = "hu.simplexion.kotlin"
+version = "2022.10.19"
 
 val isSnapshot = version.toString().contains("SNAPSHOT")
 
@@ -111,9 +60,23 @@ kotlin {
     }
 
     js {
-        browser{
+        // "scripts": {
+        //    "dev": "vite",
+        //    "build": "vite build",
+        //    "preview": "vite preview"
+        //  },
+        //  "devDependencies": {
+        //    "vite": "^3.2.3"
+        //  },
+        browser {
             testTask {
                 enabled = ! isPublishing
+            }
+        }
+        compilations.forEach {
+            it.packageJson {
+                customField("scripts", mapOf("dev" to "vite", "build" to "vite build", "preview" to "vite preview"))
+                devDependencies["vite"] = "^3.2.3"
             }
         }
     }
@@ -179,7 +142,7 @@ if (project.isPublishing) {
         config(project)
 
         publications.withType<MavenPublication>().all {
-            config(tasks["javadocJar"], "@applicationTitle@")
+            config(tasks["javadocJar"], "My Application")
         }
     }
 

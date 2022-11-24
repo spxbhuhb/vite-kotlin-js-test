@@ -1,4 +1,4 @@
-rootProject.name = "zakadabar-application-template"
+rootProject.name = "vite-kotlin-js-test"
 
 pluginManagement {
     repositories {

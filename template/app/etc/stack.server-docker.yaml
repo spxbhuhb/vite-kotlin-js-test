@@ -1,17 +1,17 @@
-serverName: @applicationTitle@
+serverName: My Application
 defaultLocale: en
 
 database:
   driverClassName: org.postgresql.Driver
-  jdbcUrl: jdbc:postgresql://db/@dockerSqlDatabase@
-  username: @dockerSqlUser@
-  password: @dockerSqlPassword@
+  jdbcUrl: jdbc:postgresql://db/vite-kotlin-js-test
+  username: postgres
+  password: 96f93e5d-7e9c-43d0-91a4-19679322ac21
 
 traceRouting: false
-staticResources: /local/@projectName@/var/static
+staticResources: /local/vite-kotlin-js-test/var/static
 
 modules:
-  - @packageName@.backend.Module
+  - hu.simplexion.kotlin.test.vite.backend.Module
 
 #ktor:
 #  port: 8080
